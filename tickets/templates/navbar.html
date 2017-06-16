@@ -1,33 +1,45 @@
-<nav class="navbar navbar-default navbar-static-top">
-  
-    </form>
-    <ul class="nav navbar-nav navbar-right">
-        <li class="">
-            {% if user.is_authenticated %}
-            <a href="/order">
-            {%else%}
-            <a href="/login">
-            {%endif%}
-            </a>
-        </li>
-       
-        {% if user.is_authenticated %}
-        <li class="">
-            <a href="/sell">Sell tickets</a>
-        </li>
-        <li class="">
-            <a href="/Mytickets">My tickets</a>
-        </li>
-       
-        <li class="">
-            <a href="{% url 'tickets:logout' %}">Logout</a>
-        </li>
-        {%else%}
-        <li class="">
-            <a href="/login">Login</a>
-        </li>
-        <li class="">
-            <a href="/register">Register</a>
-        </li>
-        {%endif%}
-    </ul>
+<nav>
+	<div class="nav-wrapper green darken-4">
+		<a href="#" class="brand-logo">Issue Vision</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li class="">
+				{% if user.is_authenticated %}
+				<a href="/order">
+					{%else%}
+					<a href="/login">
+						{%endif%}
+					</a>
+			</li>
+
+			{% if user.is_authenticated %}
+			<li class="">
+				<!-- <a href="/sell">Sell tickets</a> -->
+				<a href="/sell">New Ticket</a>
+			</li>
+			<!--  <li class="">
+		 <a href="/Mytickets">My tickets</a>
+		 </li> -->
+
+		 <li class="">
+			 <a href="{% url 'tickets:logout' %}">Logout</a>
+		 </li>
+		 {%else%}
+		 <li class="">
+			 <a href="/login">Login</a>
+		 </li>
+		 <li class="">
+			 <a href="/register">Register</a>
+		 </li>
+		 {%endif%}
+		</ul>
+	</div>
+</nav>
+
+
+
+
+
+<!-- <nav class="navbar navbar-default navbar-static-top"> -->
+<!-- <ul class="nav navbar-nav navbar-right"> -->
+
+<!--   </ul> -->

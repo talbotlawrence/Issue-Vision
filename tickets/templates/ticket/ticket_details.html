@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Issue Vision</title>
+		{%include "styles.html"%}
+	</head>
+	<body>
+	
+		{%include "navbar.html"%}
+		<div class="container">
+
+			<ol class="breadcrumb">
+				<li><a href="{% url 'tickets:category_tickets' ticket.category.id %}">{{ticket.category}}</a></li>
+				<li class="active">{{ticket.subject}}</li>
+			</ol>
+			
+			<div class="main-content text-center">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1>ticket subject: {{ticket.subject}} ({{ticket.quantity}} left)</h1>
+						{%if ticket.image_path%}
+						<img src="/media/{{ticket.image_path}}" alt="{{ticket}}" height="300" width="300">
+						{%else%}
+						<img src="/media/images/no-image.jpg" alt="{{ticket}}" height="300" width="300">
+						{%endif%}
+						{% if user.is_authenticated %}
+						<br><br>
+						<form action="{% url 'tickets:ticket_details' ticket.id %}" method="post">
+							{% csrf_token %}
+							<input type="hidden" name="ticket.id" value="{{ticket.id}}">
+							<input class="btn btn-primary" type="submit" value="Add">
+						</form>
+						{% endif %}
+						<h4>ticket Description: {{ticket.description}}</h4>
+					</div>
+				</div>
+			</div>
+			<a href="{% url 'tickets:index' %}">Back to tickets</a>
+			{% if user.is_authenticated %}
+			<a href="{% url 'tickets:sell' %}">Add another comment</a>
+			<br>
+			{% endif %}
+		</div>
+		</div>
+	</body>
+</html>

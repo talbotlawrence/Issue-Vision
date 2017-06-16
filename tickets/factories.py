@@ -47,12 +47,11 @@ class TicketFactory(factory.django.DjangoModelFactory):
     This class creates data for the ticket table in the database.
 
     ----Fields----
-    is_active: 0
-    subject('domain_name'): fake title for ticket
+    status: Open
+    subject('bs'): fake title for ticket
     description('bs'): fake description of a ticket
-    assignee(Iterator[User]): iterates over user.objects.all
     raised_by(Iterator[User]): iterates over user.objects.all
-    is_active: 1
+    priority: High
     submitted('date'): fake date
 
    
@@ -60,11 +59,11 @@ class TicketFactory(factory.django.DjangoModelFactory):
     """
     class Meta:
         model = Ticket
-    status = 0
-    subject = factory.Faker('domain_name')
+    status = "Open"
+    subject = factory.Faker('bs')
     description = factory.Faker('bs')
     raised_by = factory.Iterator(User.objects.all())
-    priority = 1
+    priority = "High"
     submitted = factory.Faker('date')
 
 #######################################################################################################

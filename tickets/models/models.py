@@ -4,29 +4,17 @@ from django.db import models
 
 #######################################################################################################
 
-options_status = (          
-        (0, 'Open'),
-        (1, 'Closed'),
-        (2, 'Hold'),
-    )
-
-options_priority = (          
-        (0, 'Low'),
-        (1, 'High'),
-        (2, 'Nothing is working!'),
-    )
-
-#######################################################################################################
-
 class Ticket(models.Model):
-    status = models.IntegerField(default=0, choices=options_status)
+    # status = models.IntegerField(default=0, choices=options_status)
+    status = models.CharField(max_length=10)
     subject = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     raised_by = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
     )
-    priority = models.IntegerField(default=1, choices=options_priority)
+    # priority = models.IntegerField(default=1, choices=options_priority)
+    priority = models.CharField(max_length=25)
     submitted = models.DateTimeField(auto_now_add=True)
 
 #######################################################################################################
