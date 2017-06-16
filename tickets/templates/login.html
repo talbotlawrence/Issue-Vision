@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Issue Vision</title>
+</head>
+<body>
+	{%include "navbar.html"%}
+	<div class="container">
+		<div class="row">
+			<!-- <div class="col-sm-12 text-center"> -->
+				<h1>Login to Issue Vision please!</h1>
+			<!-- </div> -->
+		</div>
+		<div class="row">
+			<!-- <div class="col-sm-3"></div> -->
+			<!-- <div class="col-sm-6"> -->
+				<hr>
+				<form id="login_form" class="form-group" method="post" action="{% url 'tickets:login' %}">	<!-- This line above needs explaining!!  What is tickets:login -->
+					{% csrf_token %}
+					Username: <input class="form-control" type="text" name="username" value="" size="50" />
+					<br>
+					Password: <input class="form-control" type="password" name="password" value="" size="50" />
+					<br>
+					<input class="btn btn-primary" type="submit" value="submit" />
+				</form>
+			<!-- </div> -->
+			<!-- <div class="col-sm-3"></div> -->
+		</div>
+	</div> 	
+</body>
+</html>

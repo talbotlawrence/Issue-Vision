@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Issue Vision</title>
+</head>
+<body>
+	{%include "navbar.html"%}
+	<div class="container">
+		<div class="row">
+			<!-- <div class="col-sm-12 text-center"> -->
+				<h1>Please Register!</h1>
+			<!-- </div> -->
+		</div>
+		<div class="row">
+			<!-- <div class="col-sm-3"></div> -->
+			<!-- <div class="col-sm-6"> -->
+				<hr>
+				{% if registered %}
+				<strong>Thank you for signing up!</strong>
+				<a href="{% url 'tickets:index' %}">Return to the homepage.</a><br>
+				{% else %}
+				<h4>Sign up here!</h4><br>
+
+				<form id="user_form" method="post" action="{% url 'tickets:register' %}"
+				enctype="multipart/form-data">
+
+				{% csrf_token %}
+
+				<!-- Display each form. The as_p method wraps each element in a paragraph
+				(<p>) element. This ensures each element appears on a new line,
+				making everything look neater. -->
+				{{ user_form.as_p }}
+
+				<!-- Provide a button to click to submit the form. -->
+				<input class="btn btn-primary" type="submit" name="submit" value="Register" />
+				</form>
+				{% endif %}
+			<!-- </div> -->
+			<!-- <div class="col-sm-3"></div> -->
+		</div>
+	</div>
+</body>
+</html>

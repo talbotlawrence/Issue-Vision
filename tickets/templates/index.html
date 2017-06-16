@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Issue Vision</title>
+</head>
+<body>
+	{%include "navbar.html"%}
+	<div class="container-fluid">
+		<div class="row text-center">
+			<h1>Issue Vision is here!</h1>
+			{% if user.is_authenticated %}
+			<h1>Welcome {{ user.first_name }}!</h1>
+			{% endif %}
+		</div>
+		<div class="row">
+			{% for ticket in tickets %}
+				<div class="row content-holder">
+					
+
+					<h5>{{ticket.id}}</h5>		
+					<h5>{{ticket.status}}</h5>
+					<h5>{{ticket.subject}}</h5>
+					<h5>{{ticket.raised_by}}</h5>
+					<h5>{{ticket.priority}}</h5>
+					<h5>{{ticket.submitted}}</h5>
+							
+				</div>
+						</div>
+
+			{% endfor %}
+		</div>
+	</div>	
+	<!-- <script
+	src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="static/javascripts.js"></script> -->
+
+</body>
+</html>
