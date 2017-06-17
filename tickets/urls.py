@@ -5,6 +5,7 @@ from django.conf.urls import url
 from tickets.views import *
 from tickets.views.views import *
 from tickets.views.ticket_details_view import *
+from tickets.views.view_new_ticket_form import *
 # from tickets.views.view_search_tickets import *
 
 app_name = "tickets"
@@ -13,12 +14,12 @@ urlpatterns = [
     url(r'^login$', login_user, name='login'),
     url(r'^logout$', user_logout, name='logout'),
     url(r'^register$', register, name='register'),
-    url(r'^ticket_details/(?P<ticket_id>.+?)/$', ticket_details, name='ticket_details')
+    url(r'^ticket_details/(?P<ticket_id>.+?)/$', ticket_details, name='ticket_details'),
+    url(r'^new$', new_ticket, name='new')
     # url(r'^edit_ticket/(?P<ticket_id>.+?)/$', edit_ticket, name='edit_ticket')
     # url(r'^search_tickets/$', search_tickets, name='search_tickets')    
     # url(r'^tickets$', list_tickets, name='list_tickets'),
     # url(r'^Mytickets$', my_tickets, name='my_tickets')
-    # url(r'^sell$', sell_ticket, name='sell'),
     # url(r'^category_tickets/(?P<category_id>.+?)/$', list_category_tickets, name='category_tickets'),
     # url(r'^categories$', category_tickets, name='categories'),
     # url(r'^order$', view_order, name='order'),

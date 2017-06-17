@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Issue Vision</title>
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="../static/materialize.css"  media="screen,projection"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+	{%include "navbar.html"%}
+	<div class="container">
+		<div class="row">
+				<h1>New Ticket</h1>
+		</div>
+		<div class="row">
+					<hr>
+					<form action="{% url 'tickets:new' %}" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						{{ product_form.as_p }}
+						<input class="btn btn-primary btn-lg" type="submit" value="Submit"/>
+					</form>
+					<br>
+		</div>
+	</div>	
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="../static/materialize.js"></script>
+
+</body>
+</html>
