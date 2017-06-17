@@ -33,3 +33,11 @@ def assignee_details(request, assign_id):
     chosen_assignee = Assign.objects.get(pk=assign_id)
 
     return render(request, template_name, {'assignee': chosen_assignee})
+
+
+def comment_details(request, comment_id):
+
+    template_name = 'ticket_details.html'
+    chosen_comment = Comment.objects.get(pk=comment_id)
+
+    return render(request, template_name, {'comment': chosen_comment})    
