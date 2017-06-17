@@ -21,7 +21,15 @@ def ticket_details(request, ticket_id):
         template_name (HTML): The webpage's structure
         ticket (Dict): This is the ticket's information stored inside of a dictionary
     """
-    template_name = 'ticket/ticket_details.html'
+    template_name = 'ticket_details.html'
     chosen_ticket = Ticket.objects.get(pk=ticket_id)
 
     return render(request, template_name, {'ticket': chosen_ticket})
+
+#This is not working below
+def assignee_details(request, assign_id):
+
+    template_name = 'ticket_details.html'
+    chosen_assignee = Assign.objects.get(pk=assign_id)
+
+    return render(request, template_name, {'assignee': chosen_assignee})

@@ -17,14 +17,17 @@
 
 			<div class="main-content text-center">
 				<div class="row">
+				<a href="{% url 'tickets:index' %}">Back to Ticket List</a>
 						<h5>Priority: {{ticket.priority}}</h5>
 						<h5>Status: {{ticket.status}}</h5>
 						<h5>ID: {{ticket.id}}</h5>
 						<h5>Submitted On: {{ticket.submitted}}</h5>
 						<h5>Raised By: {{ticket.raised_by}}</h5>
-						<h5>Assigned To: {{ticket.raised_by}}</h5>
-						<!-- Assignee -->
 
+					{% if ticket.raised_by == assign.assignee %}
+						<h5>Assigned To: {{ticket.raised_by}}</h5>
+					{% else %}
+					{% endif %}
 					
 						<h4>Subject: {{ticket.subject}}</h4>
 
