@@ -23,14 +23,29 @@
 		 <li class="">
 			 <a href="{% url 'tickets:logout' %}">Logout</a>
 		 </li>
+
+		 <form action="{% url 'tickets:search_tickets' %}" type="get" accept-charset="utf-8">
+			 <!-- <div class="form-group"> -->
+				 <input value="{{request.GET.search}}" type="text" class="form-control" name="Search" placeholder="Search">   
+			 <!-- </div> -->
+
+			 <!-- <span style="color: #fff;">Local -->
+				 <!-- <input type="checkbox" value="True" name="local_delivery"> -->
+<!-- 				 <input class="btn btn-primary btn-sm invisible" type="submit" value="Search">
+ -->			 <!-- </span> -->
+		 </form>
+
 		 {%else%}
+
 		 <li class="">
 			 <a href="/login">Login</a>
 		 </li>
 		 <li class="">
 			 <a href="/register">Register</a>
-		 </li>
+		 </li> 
+
 		 {%endif%}
+		 
 		</ul>
 	</div>
 </nav>
