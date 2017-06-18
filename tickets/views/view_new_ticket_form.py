@@ -1,8 +1,10 @@
 from django.shortcuts import render
-# from django.template import RequestContext
+from django.template import RequestContext
 from tickets.forms.form_ticket import TicketForm
 from tickets.models.models import *
 from django.utils.datastructures import MultiValueDictKeyError 
+
+
 def new_ticket(request):
     """This function allows the user to add a ticket to the Ticket table to be sold.
 
@@ -19,7 +21,7 @@ def new_ticket(request):
     if request.method == 'GET':
         template_name = 'ticket_create.html'
         ticket_form = TicketForm()
-        print("My ticket form is {}".format(ticket_form))
+        # print("My ticket form is {}".format(ticket_form))
         return render(request, template_name, {'ticket_form': ticket_form})
 
     elif request.method == 'POST':
@@ -28,7 +30,7 @@ def new_ticket(request):
        
         if error_message is not None:
             ticket_form = TicketForm(request.POST, request.FILES)
-            print("My ticket form is {}".format(ticket_form))
+            # print("My ticket form is {}".format(ticket_form))
             template_name = 'ticket_create.html'
             return render(request, template_name, { 'ticket_form': ticket_form, 'error_message': error_message })
   

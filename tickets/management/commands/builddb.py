@@ -25,6 +25,6 @@ class Command(BaseCommand):
         management.call_command('migrate')              #study this line
         UserFactory.create_batch(size=10) 
         TicketFactory.create_batch(size=20)             #what determines the size?
-        AssignFactory.create_batch(size=20)
+        AssignFactory.create_batch(size=5)
         ImageFactory.create_batch(size=5)
         CommentFactory.create_batch(size=5)

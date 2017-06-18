@@ -3,6 +3,14 @@ from django.db import models
 
 #######################################################################################################
 
+PRIORITY_CHOICES = (
+    ('low', 'Low'),
+    ('high', 'High'),
+    ('catastrophe', 'Catastrophe'),
+    )
+
+#######################################################################################################
+
 class Ticket(models.Model):
     status = models.CharField(max_length=10)
     subject = models.CharField(max_length=255)
@@ -11,7 +19,7 @@ class Ticket(models.Model):
         User,
         on_delete=models.CASCADE,
     )
-    priority = models.CharField(max_length=25)
+    priority = models.CharField(max_length=25, choices=PRIORITY_CHOICES)
     submitted = models.DateTimeField(auto_now_add=True)
 
 #######################################################################################################

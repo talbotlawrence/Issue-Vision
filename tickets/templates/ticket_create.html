@@ -19,8 +19,8 @@
 					<hr>
 					<form action="{% url 'tickets:new' %}" method="post" enctype="multipart/form-data">
 						{% csrf_token %}
-						{{ product_form.as_p }}
-						<input class="btn btn-primary btn-lg" type="submit" value="Submit"/>
+						{{ ticket_form.as_p }}
+						<input class="waves-effect waves-light btn grey" type="submit" value="Submit"/>
 					</form>
 					<br>
 		</div>
