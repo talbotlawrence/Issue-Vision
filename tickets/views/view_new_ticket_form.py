@@ -18,6 +18,7 @@ def new_ticket(request):
 
     Author: Talbot Lawrence
     """
+
     if request.method == 'GET':
         template_name = 'ticket_create.html'
         ticket_form = TicketForm()
@@ -36,9 +37,12 @@ def new_ticket(request):
   
         t = Ticket(
             # seller = request.user,
-            priority = form_data['priority'],
+            # category = Category.objects.get(pk=form_data['category']),
+            priority = form_data[PRIORITY_CHOICES],
             subject = form_data['subject'],
-            description = form_data['description']
+            description = form_data['description'],
+            status = 'Open',
+            raised_by_id = 1
             
             # category = Category.objects.get(pk=form_data['category']),
             # image_path = image_path,

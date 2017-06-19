@@ -5,13 +5,18 @@ from django.shortcuts import render
 from django.template import RequestContext
 
 from tickets.forms.forms import UserForm
-from tickets.models.models import Ticket
+from tickets.models.models import *
+from django.contrib.auth.models import User
 
 
 def index(request):
     template_name = 'index.html'
     # all_tickets = Ticket.objects.filter(quantity__gt=0).order_by('-id')[:20]
     all_tickets = Ticket.objects.all().order_by('-id')[:20]
+    # tech_user = User.objects.get(username='talbotlawrence')
+    # tech = Assign.objects.filter(id=0)
+    # assigned_tech.id =     
+    # print(assigned_tech)
 
     return render(request, template_name, {'tickets': all_tickets})
 

@@ -1,0 +1,4 @@
+Update tickets_assign
+set assignee_id = 13
+
+select * from tickets_assign;

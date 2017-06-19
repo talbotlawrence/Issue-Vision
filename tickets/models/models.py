@@ -19,7 +19,7 @@ class Ticket(models.Model):
         User,
         on_delete=models.CASCADE,
     )
-    priority = models.CharField(max_length=25, choices=PRIORITY_CHOICES)
+    priority = models.CharField(max_length=3, choices=PRIORITY_CHOICES)
     submitted = models.DateTimeField(auto_now_add=True)
 
 #######################################################################################################
